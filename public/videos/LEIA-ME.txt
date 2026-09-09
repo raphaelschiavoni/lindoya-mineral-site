@@ -1,0 +1,14 @@
+Coloque aqui o vídeo de fundo do hero:
+
+  public/videos/hero-water.mp4    (obrigatório)
+  public/videos/hero-water.webm   (opcional, melhor compressão)
+
+Recomendações do clipe:
+- Água de verdade: nascente, água corrente, superfície ondulando ou
+  garrafa/copo sendo enchido. Tons claros/azulados combinam com a marca.
+- Duração 6-15s em loop, sem cortes bruscos.
+- Resolução 1920x1080 (ou 1280x720), MP4 (H.264), idealmente < 5 MB.
+- Sem áudio (o vídeo toca mudo).
+
+Enquanto o arquivo não existir, o hero exibe a foto "a fonte e a serra"
+como fundo (poster) — nada fica quebrado.

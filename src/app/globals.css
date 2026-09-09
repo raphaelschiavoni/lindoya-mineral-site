@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Paleta oficial Lindóya Mineral (Manual de Marca) */
+  --navy-primary: #16233f;
+  --navy-dark: #0e1729;
+  --blue-secondary: #1e3557;
+  --blue-nascente: #2f5a86;
+  --gold-primary: #b89558;
+  --gold-light: #d4b47a;
+  --silver-background: #eae6dc;
+  --off-white: #f7f5ef;
+  --white: #ffffff;
+  --sparkling-red: #9e2828;
+  --text-dark: #16233f;
+  --text-muted: #687083;
+}
+
+@layer base {
+  * {
+    @apply border-silver;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--white);
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
+
+  ::selection {
+    background-color: var(--gold-primary);
+    color: var(--white);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .brand-eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-brand text-gold;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  /* Divisória dourada com losango central inspirada nos rótulos */
+  .gold-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--gold-primary);
+  }
+  .gold-rule::before,
+  .gold-rule::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--gold-primary),
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Textura discreta prata/papel premium */
+  .bg-silver-texture {
+    background-color: var(--off-white);
+    background-image:
+      radial-gradient(
+        circle at 20% 12%,
+        rgba(184, 149, 88, 0.06),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 88% 8%,
+        rgba(22, 35, 63, 0.05),
+        transparent 40%
+      );
+  }
+
+  .bg-navy-texture {
+    background-color: var(--navy-primary);
+    background-image:
+      radial-gradient(
+        circle at 15% 0%,
+        rgba(184, 149, 88, 0.14),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 95% 100%,
+        rgba(47, 90, 134, 0.28),
+        transparent 45%
+      );
+  }
+
+  .shimmer-loading {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-loading::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
+    animation: shimmer 1.6s infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
